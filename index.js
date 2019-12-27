@@ -65,7 +65,7 @@ connectTcp();
 
 // data是串口返回的数据
 serialPort.on('data', function (data) {
-  console.log('\n' + formatDate() + 'serialport data：' + '\n' + data.toString('hex'));
+  console.log('\n' + formatDate() + ' serialport data：' + '\n' + data.toString('hex'));
   client.write(data);
 });
 
@@ -79,7 +79,7 @@ client.on('connect', () => {
 client.on('data', function (data) {
   let hexstr = new Buffer(data);
   hexstr = hexstr.toString("hex");
-  console.log('\n ' + formatDate() + 'tcp data: ' + '\n' + hexstr);
+  console.log('\n' + formatDate() + ' tcp data: ' + '\n' + hexstr);
   serialPort.write(data, () => { });
 });
 
